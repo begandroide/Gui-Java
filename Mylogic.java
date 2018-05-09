@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Mylogic extends Logic{
     @Override
-    public ArrayList<Object> catalog(Object catalEdited) 
+    public <T> T catalog(Object catalEdited) 
 	{
 		return null;
 	}
