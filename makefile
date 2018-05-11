@@ -4,9 +4,9 @@ JVM = java
 CP = -cp
 
 default:
-	$(JC) $(CP) interface.jar ./*.java
+	$(JC) $(CP) interfaz.jar ./*.java
 run:
-	$(JVM) $(CP) interface.jar: Main
+	$(JVM) $(CP) interfaz.jar: Main
 
 clean:
 	rm *.class
