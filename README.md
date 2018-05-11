@@ -239,6 +239,15 @@ abstract public class Logic{
 	public abstract String finalizarCompra();
 }
 ```
+**Lo entregado no compilará dado que la clase Mylogic no ha sobre-escrito el tipo de valor
+de retorno. Recuerde que este debe ser iterable por un for tipo foreach. Se orienta de la siguiente
+manera: investigue sobre generics en JAVA. Una vez cambiado el valor de retorno de la función catalog()
+recién podrá compilar y ejecutar la interfaz.**
+
+Para compilar y ejecutar se usa **makefile**, las operaciones deben ser:
+- make -> compilar
+- make run -> ejecutar
+- make clean -> limpiar directorio.
 
 Dado lo anterior, para iniciar una instancia del interfaz, como requisito minimo es:
 - importar clases del .jar
