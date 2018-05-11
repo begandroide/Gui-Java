@@ -4,12 +4,12 @@ import java.util.Map;
 
 public class Mylogic extends Logic{
     @Override
-    public ArrayList<Object> catalog(Object catalEdited) 
-	{
-		return null;
-	}
+    public <T> T catalog(Object catalEdited) 
+    {
+	return null;
+    }
 
-	@Override
+    @Override
     public Object creaUsuario(String nombre, String local, int edad) {
         return null;
     }

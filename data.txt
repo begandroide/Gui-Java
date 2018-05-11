@@ -1,0 +1,50 @@
+{
+  { "name":"Star Wars",
+    "price":"23.56",
+    "stock":"55",
+    "description":"Galaxy wars and dark side of force",
+    "format":"PaperBack"
+  },
+  { "name":"JavaScript Introducing",
+    "price":"25.98",
+    "stock":"30",
+    "description":"Brieff introduction to LP JS, develop web",
+    "format":"EBook"
+  },
+  { "name":"Cameron",
+    "price":"4.59",
+    "stock":"5",
+    "description":"About romantics things",
+    "format":"AudioVisualPhysical"
+  },
+  { "name":"Coco",
+    "price":"32.56",
+    "stock":"15",
+    "description":,"mexican history, coco was converted in bones"
+    "format":"AudioVisualDigital"
+  },
+  { "name":"Buscando A Nemo",
+    "price":"9.5",
+    "stock":"6",
+    "description":"A Fish in the ocean, its a boy.",
+    "format":"AudioVisualDigital"
+  },
+  { "name":"Angular publish",
+    "price":"10.89",
+    "stock":"50",
+    "description":"About framework Angular, news",
+    "format":"Magazine"
+  },
+  { "name":"Machine Data Learning",
+    "price":"50.69",
+    "stock":"15",
+    "description":"Algorithms wrotten in ipython",
+    "format":"PaperBack"
+  },
+  { "name":"How To Jupyter",
+    "price":"28",
+    "stock":"9",
+    "description":"Tutorial about how use jupyter in anaconda",
+    "format":"EBook"
+  }
+}
