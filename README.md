@@ -1,14 +1,18 @@
 # GUI Carrito de compras JAVA
 
 # Table of Contents
-1. [Inicializando el proyecto](#introduction)
-2. [Lógica de clases](#logic)
-3. [Lógica del módulo](#logicModule)
-4. [First Steps](#firstSteps)
+1. [About .JAR](#AboutJar)
+	1. [¿Qué es .JAR?](#WhatIsJar)
+	2. [Estructura Compilada](#EstructuraJar)
+	3. [Como usarlo](#HowToJar)
+2. [Inicializando el proyecto](#introduction)
+3. [Lógica de clases](#logic)
+4. [Lógica del módulo](#logicModule)
+5. [First Steps](#firstSteps)
 	1. [Requisitos para listar productos](#listing)
 		1. [Catalog ()](#catalog)
 	2. [Requisitos para añadir un producto al carro](#addItems)
-5. [Sobre los botones](#buttons)
+6. [Sobre los botones](#buttons)
 	1. [Interfaz Tienda Virtual](#tiendaVirtual)
 	 	1. [Añadir al carro](#addToCarro)
 	 	2. [Ir al carro](#goToCarro)
@@ -16,6 +20,113 @@
 		1. [Modificar cantidad seleccionado](#updateQuantity)
 		2. [Ir a Tienda virtual](#goToTienda)
 		2. [Finalizar compra](#endPurchase)
+
+
+# About .JAR <a name="AboutJar"></a>
+## ¿Qué es un .JAR? <a name="WhatIsJar"></a>
+Es **Java Archive** el cual se comprime en formato .ZIP y extension .JAR. Lo interesante de estos tipos de archivos es que pueden ser aplicaciones Runnables, o tambien pueden ser librerias o módulos, las cuales pueden ser usadas en distintos programas que la importen.
+
+Para esta ocasión, se les dará un archivo de extension .jar el cual tiene compiladas las clases necesarias para gestar la interfaz gráfica y utilizarla en sus proyectos.
+
+## Estructura compilada en el .JAR <a name="EstructuraJar"></a>
+
+sea una estructura de directorio tal como:
+
+```
+project    
+│
+└───src
+│   └───com
+|	|	└───bgautier
+|	|	│   │--->BibliotecaInterface.java
+|	|	│   │--->Books.java
+|	|	|	|--->CarritoInterface.java
+|	|	|	|--->UserInterface.java
+│   
+└───out
+│   └───com
+|	│   └───bgautier
+|	│   |   │--->BibliotecaInterface.class
+|	│   |   │--->Books.class
+|	│   |   │--->CarritoInterface.class
+|	│   |   │--->UserInterface.class
+------------------------------------------
+```
+
+En donde el directorio src es dnde se encuentra un paquete **com.bgautier**, en el cual se encuentra el fuente de nuestro programa.
+
+Al compilar los fuentes es necesario hacerlo de forma ordenada y en una carpeta aparte para no
+confundirse. Por lo tanto se genera el directorio "out" en el cual se cargan las clases
+compiladas.
+
+Para compilar el proyecto anterior es necesario pasar solo las clases .java y se hace asi:
+```bash
+	javac ./src/com/bgautier/*.java -d out/
+```
+
+sigue la regla:
+```bash
+	javac <all-java-classes-to-compile.java> -d <directory-output>
+```
+
+Para crear el archivo .jar es necesario pasarle los archivos compilados, osea los archivos **.class**
+
+Por lo tanto, se usa:
+```bash
+	jar cfv interface.jar ./out/ .
+```
+
+Lo anterior entrega el archivo **interface.jar**; el modulo que utilizaremos en esta instancia.
+
+## How use it? <a name="HowToJar"></a>
+
+Supongamos tenemos un archivo Main.java como el siguiente:
+```java
+	public class Main{
+		 public static void main(String[] args)
+		 {
+		 	UserInterface mainInterface = new UserInterface();
+		 }
+	}
+```
+
+Hay dos formas para usar un .JAR:
+
+- Si te acomoda usar la linea de comandos, compilamos de esta manera:
+
+```bash
+	javac -cp .:interface.jar Main.java
+```
+
+- Si usarás un IDE como intellij idea: Es necesario ir a "project structure" modules->dependences->add Jar y seleccionar el .jar entregado.
+
+Lo anterior **no compilará** dado que Main esta usando la clase *UserInterface*
+y no la está importando desde la clase principal.
+
+Por lo anterior, es mandatorio importar el .jar.
+
+Si volvemos a la estructura de directorios como ejemplo; debemos utilizar el paquete (*package com.bgautier*) en nuestro main:
+
+Entonces el Main para importar hace lo siguiente:
+```java
+	import com.bgautier.*;
+
+	public class Main{
+		 public static void main(String[] args)
+		 {
+		 	UserInterface mainInterface = new UserInterface();
+		 }
+	}
+```
+
+#### but, why? :neutral_face: <a name="brieff"></a>
+
+El compilador de Java traduce a bitcode al compilar un archivo *main.java*, esto se refleja que la salida es un archivo *main.class*, el cual contiene todo el binario necesario para JVM.
+
+Ante lo anterior, cuando le pasamos al compilador javac -classpath .:classes.jar Main.java; estamos pasando como argumento nuestro codigo compilado desde :classes.jar, que sabemos está dentro de un paquete "com.bgautier.\*.class". 
+
+Por lo cual, cuando importamos en el main *com.bgautier* estamos importando el bitcode contenido en el .jar.  
+
 
 
 ## Inicializando el proyecto <a name="introduction"></a>
