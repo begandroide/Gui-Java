@@ -5,9 +5,15 @@ import java.util.Map;
 public class Mylogic extends Logic{
     @Override
     public <T> T catalog(Object catalEdited) 
+<<<<<<< HEAD
     {
 	return null;
     }
+=======
+	{
+		return null;
+	}
+>>>>>>> 29e979d04884e5bf08ddb6329b619d0eda36bc72
 
     @Override
     public Object creaUsuario(String nombre, String local, int edad) {
